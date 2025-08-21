@@ -37,14 +37,12 @@ apt install php7.1 php7.1-common php7.1-mbstring php7.1-xmlrpc php7.1-soap php7.
 
 STEP -3
 
+This is related to upload permissions'
 
-once php is installed , we have to some setting
+
 
 vi /etc/php/7.1/apache2/php.ini
 
-                              php inside there is version 7.1 . go inside the version there is a one more folder apache2 and go inside it .there is one more file named php.ini
-                               
-                             we have to go inside php.ini file and put below 4 line command . these are instructions 
                                        
 
 file_uploads = On                // means photo upload opting is on
@@ -52,6 +50,30 @@ allow_url_fopen = On
 memory_limit = 256M              // this is memory limit
 upload_max_filesize = 100M         // maximum we can upload 100mb. if it is more upload will be rejected.
 date.timezone = America/Chicago
+
+
+
+
+explanation :
+
+Simple Explanation of PHP Settings
+file_uploads = On
+This lets people upload files to your website. If it’s off, they can’t upload files.
+
+allow_url_fopen = On
+This lets your website open files from the internet using links (like websites or FTP). If it’s off, it can only open files stored on your server.
+
+memory_limit = 256M
+Your website’s code can use up to 256 megabytes of memory. If it needs more, the code will stop working.
+
+upload_max_filesize = 100M
+The biggest file someone can upload is 100 megabytes. Bigger files will not be allowed.
+
+date.timezone = America/Chicago
+This sets the time zone for your website’s clock to Central Time (Chicago time). It controls how time and dates show up.
+
+These settings are found in a file called php.ini that helps control how your website works, especially with uploads, memory, and the time shown.
+
 ----------------------------------------------------------------------------------------------
 
 STEP -4
@@ -98,7 +120,7 @@ vi /etc/apache2/site-available/orangehrm.conf
 --------------------------------------------------------------------------------
                     configure virtualbox and using below text
 
-orangehrm.conf 
+vi orangehrm.conf 
 
 <VirtualHost *:80>
     ServerAdmin admin@yourdomain.com
@@ -118,7 +140,11 @@ orangehrm.conf
 
 -------------------------------------------------------------------------------------------------
 
-enable the virtual box
-and 
-restart the apache 2 server
+enable the virtual box , execute  below commands
+
+1) a2ensite orangehrm.conf 
+2) systemctl reload apache2 or systemctl restart apache2
+
+
+------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
