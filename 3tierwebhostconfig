@@ -10,7 +10,7 @@ apt-get upgrade
 
 we have to create aura RDS
 
-apt-get install apache2
+
 ------------------------------------------------------------------------------------------------------------------------------------------------
 STEP -2
 
@@ -18,51 +18,21 @@ STEP -2
 installing php 
 
  
-#!/bin/bash
-# Script to install PHP on Ubuntu (default or specific version)
+apt update
 
-# 1. Update package repository
-sudo apt update && sudo apt upgrade -y
+apt install apache2 -y
 
-# 2. Install required tools
-sudo apt install -y software-properties-common curl
+apt-get install software-properties-common
 
-# 3. Add PHP PPA for latest versions (optional, but needed for PHP 8.x newer releases)
-sudo add-apt-repository -y ppa:ondrej/php
-sudo apt update
+add-apt-repository ppa:ondrej/php
 
-# === Change this variable to your desired PHP version ===
-PHP_VERSION="8.4"
+apt update
 
-# 4. Install PHP and common extensions
-sudo apt install -y \
-    php${PHP_VERSION} \
-    php${PHP_VERSION}-cli \
-    php${PHP_VERSION}-fpm \
-    php${PHP_VERSION}-json \
-    php${PHP_VERSION}-common \
-    php${PHP_VERSION}-mysql \
-    php${PHP_VERSION}-zip \
-    php${PHP_VERSION}-gd \
-    php${PHP_VERSION}-mbstring \
-    php${PHP_VERSION}-curl \
-    php${PHP_VERSION}-xml \
-    php${PHP_VERSION}-bcmath \
-    php-pear
+apt install php7.1                      
 
-# 5. For Apache users, also install PHP module and restart Apache
-sudo apt install -y libapache2-mod-php${PHP_VERSION}
-sudo systemctl restart apache2
+apt install php7.1 php7.1-common php7.1-mbstring php7.1-xmlrpc php7.1-soap php7.1-gd php7.1-xml php7.1-intl php7.1-mysql php7.1-cli php7.1-mcrypt php7.1-ldap php7.1-zip php7.1-curl
 
-# 6. For Nginx users (PHP-FPM setup)
-# Uncomment if using Nginx:
-# sudo systemctl enable php${PHP_VERSION}-fpm
-# sudo systemctl restart nginx
-
-# 7. Verify PHP installation
-php -v
-
-echo "✅ PHP ${PHP_VERSION} installation completed."
+  /// developer write the code using php version 7.1  and we have to install all plugins 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 STEP -3
@@ -117,11 +87,36 @@ once unzip is installed . unzip the file
 ----- giving permission like read ,write and executed 
 
        chmod  -R 755 /var/www/orangehrm 
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Step-5
+
 --- creating virtual box
 vi /etc/apache2/site-available/orangehrm.conf
-
+--------------------------------------------------------------------------------
+                    configure virtualbox and using below text
 
 orangehrm.conf 
+
+<VirtualHost *:80>
+    ServerAdmin admin@yourdomain.com
+    DocumentRoot /var/www/E-CommerceWebsite
+    ServerName ec2-13-60-223-60.eu-north-1.compute.amazonaws.com
+    ServerAlias www.ec2-13-60-223-60.eu-north-1.compute.amazonaws.com
+
+    <Directory /var/www/E-CommerceWebsite>
+        Options +FollowSymLinks
+        AllowOverride All
+        Require all granted
+    </Directory>
+
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+
+-------------------------------------------------------------------------------------------------
 
 enable the virtual box
 and 
