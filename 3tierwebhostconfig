@@ -45,10 +45,10 @@ vi /etc/php/7.1/apache2/php.ini
 
                                        
 
-file_uploads = On                // means photo upload opting is on
+file_uploads = On                
 allow_url_fopen = On            
-memory_limit = 256M              // this is memory limit
-upload_max_filesize = 100M         // maximum we can upload 100mb. if it is more upload will be rejected.
+memory_limit = 256M              
+upload_max_filesize = 100M        
 date.timezone = America/Chicago
 
 
@@ -123,12 +123,12 @@ vi /etc/apache2/site-available/orangehrm.conf
 vi orangehrm.conf 
 
 <VirtualHost *:80>
-    ServerAdmin admin@yourdomain.com
-    DocumentRoot /var/www/E-CommerceWebsite
+    ServerAdmin vikasshetty543@gmail.com
+    DocumentRoot /var/www/orangehrm
     ServerName ec2-13-60-223-60.eu-north-1.compute.amazonaws.com
     ServerAlias www.ec2-13-60-223-60.eu-north-1.compute.amazonaws.com
 
-    <Directory /var/www/E-CommerceWebsite>
+    <Directory /var/www/orangehrm>
         Options +FollowSymLinks
         AllowOverride All
         Require all granted
@@ -137,6 +137,7 @@ vi orangehrm.conf
     ErrorLog ${APACHE_LOG_DIR}/error.log
     CustomLog ${APACHE_LOG_DIR}/access.log combined
 </VirtualHost>
+
 
 -------------------------------------------------------------------------------------------------
 
