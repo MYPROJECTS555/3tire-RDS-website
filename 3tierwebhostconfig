@@ -143,6 +143,7 @@ vi orangehrm.conf
 enable the virtual box , execute  below commands
 
 1) a2ensite orangehrm.conf 
+1.1) a2enmod rewrite.
 2) systemctl reload apache2 or systemctl restart apache2
 
 
