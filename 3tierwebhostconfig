@@ -150,3 +150,9 @@ enable the virtual box , execute  below commands
 
 ------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ec2-13-60-223-60.eu-north-1.compute.amazonaws.com
+
+here we have to configure the RDS 
+
+Goto -- Database configuration 
+Database Host Name ---  database-rds.ch4q4uuo2c43.eu-north-1.rds.amazonaws.com(we can find the this link in RDS)
