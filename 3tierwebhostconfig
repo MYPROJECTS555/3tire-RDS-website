@@ -160,5 +160,24 @@ Database Host Name ---  database-rds.ch4q4uuo2c43.eu-north-1.rds.amazonaws.com(w
 Step 4: Admin User Creation
 Step 5: Confirmation
 Step 6: Installing
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+AWS ec2 backup plan : -
+
+AWS Backup is an easy tool from Amazon that automatically saves copies of important data, so nothing is lost if something goes wrong.
+It takes care of backups for different AWS services for users, like their files or databases.
+Users just set up when and how often to back up, and AWS Backup does it for them.
+All backups can be controlled in one place, making things simple and organized.
+If a mistake happens—like a file is deleted—users can quickly get back their lost data.
+Backups are locked away in safe storage, so they're protected from accidents or attacks.
+In short, AWS Backup helps keep data safe, without extra work or complicated steps.
+
+Creating AWS backup plan :
+
+1)    Go to AWS backup -----> create backup plan 
+2)    Backup plan options (template need to choose) ----> start with a template
+3)    Templates (Choose a template plan with existing rules.) ---> Daily-monthly-1year-Retention
+4)    Backup plan name ( for example :Ec2-backup plan) , here , we are creating a plan for ec2 instance
+5)    
 
 
